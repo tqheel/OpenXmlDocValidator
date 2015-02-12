@@ -36,16 +36,17 @@ namespace WindowsFormsApplication1
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(12, 67);
+            this.lblError.Location = new System.Drawing.Point(21, 67);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(35, 13);
+            this.lblError.Size = new System.Drawing.Size(245, 13);
             this.lblError.TabIndex = 0;
-            this.lblError.Text = "label1";
+            this.lblError.Text = "Choose document to validate and click \"Validate\" ";
             // 
             // button1
             // 
@@ -78,12 +79,21 @@ namespace WindowsFormsApplication1
             this.textBox1.Size = new System.Drawing.Size(437, 20);
             this.textBox1.TabIndex = 4;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(44, 105);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(1187, 563);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1243, 706);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -102,6 +112,7 @@ namespace WindowsFormsApplication1
         private OpenFileDialog openFileDialog1;
         private Button button2;
         private TextBox textBox1;
+        private RichTextBox richTextBox1;
 
         
 

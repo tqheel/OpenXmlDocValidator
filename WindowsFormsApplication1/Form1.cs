@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            lblError.Text = "";
+            richTextBox1.Text = "";
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -35,24 +35,33 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 var validator = new OpenXmlValidator();
                 int count = 0;
+                
                 foreach (ValidationErrorInfo error in validator.Validate(WordprocessingDocument.Open(openFileDialog1.FileName, true)))
                 {
-                    lblError.Text += "\r\n";
+                    if (count == 0)
+                    {
+                        richTextBox1.Text = "";
+                    }
+                    
+                    richTextBox1.Text += "\r\n";
                     count++;
-                    lblError.Text += ("Error Count : " + count) + "\r\n";
-                    lblError.Text += ("Description : " + error.Description) + "\r\n";
-                    lblError.Text += ("Path: " + error.Path.XPath) + "\r\n";
-                    lblError.Text += ("Part: " + error.Part.Uri) + "\r\n";
+                    richTextBox1.Text += ("Error Count : " + count) + "\r\n";
+                    richTextBox1.Text += ("Description : " + error.Description) + "\r\n";
+                    richTextBox1.Text += ("Path: " + error.Path.XPath) + "\r\n";
+                    richTextBox1.Text += ("Part: " + error.Part.Uri) + "\r\n";
+                    richTextBox1.Text += ("Node: " + error.Node) + "\r\n";
+                    richTextBox1.Text += ("Error Type: " + error.ErrorType) + "\r\n";
                 }
                 lblError.Text += "end of file";
             }
             catch (Exception ex)
             {
-                lblError.Text += (ex.Message);
+                richTextBox1.Text += (ex.Message);
             }
         }
 
